@@ -20,7 +20,7 @@ const FormContainer = styled.div `
         border: thin solid lightgreen;
         background-color: darkgray;
         padding: 1.2vw;
-        margin-bottom: 2vh;
+        margin-bottom: 1vh;
     }
 
     label {
@@ -50,14 +50,14 @@ export class Form extends React.Component {
     calculoSalarioLiquido = () => {
 
         let pagamento = this.state.salario;
-        let total = 0;
+        let total = undefined;
 
         if (pagamento <= 3000){
 
             total = (pagamento * 0.88)
             this.setState({liquido: total})
 
-        } if (pagamento >= 3001 && pagamento <= 5000){
+        } else if (pagamento >= 3001 && pagamento <= 5000){
 
             total = (pagamento * 0.80)
             this.setState({liquido: total})
